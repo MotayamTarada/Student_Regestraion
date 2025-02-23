@@ -1,0 +1,98 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model HopeRegistration.Models.StudentModel;
+<html>
+<head>
+
+</head>
+<body>
+    <form asp-action="Save">
+        <div class="row">
+            <div class="col-md-4">
+                First Name
+                <span class="text-danger">*</span>
+                <input type="text" class="form-control" asp-for="FirstName" maxlength="50" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+
+            </div>
+            <div class="col-md-4">
+                Last Name
+                <span class="text-danger">*</span>
+                <input type="text" class="form-control" asp-for="LastName" maxlength="50" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+
+            </div>
+            <div class="col-md-4">
+                Gender
+                <br />
+                <input type="radio" class="custom-radio" asp-for="Gender" value="true" />Male
+                <input type="radio" class="custom-radio" asp-for="Gender" value="true" />Female
+
+            </div>
+        </div>
+
+        <div class="row" style="padding-top:25px">
+            <div class="col-md-4">
+                Date Of Birth
+                <input type="date" class="form-control" asp-for="DateOfBirth" />
+            </div>
+            <div class="col-md-4">
+                Mobile
+                <input type="text" class="form-control" asp-for="Mobile" maxlength="10" />
+            </div>
+            <div class="col-md-4">
+                Nationality Name
+                <select class="form-control" asp-for="NationalityId" asp-items="@(new SelectList(ViewBag.Nationality,"NationalityId","NationalityName"))">
+                    <option value="">Please Select</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="accordion" id="accordionExample" style="padding-top:25px">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                           Student Class Details
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                Grade Number
+                                <select class="form-control" asp-for="GradeNumberId" asp-items="@(new SelectList(ViewBag.GradeNumber,"GradeNumberId","Name"))">
+                                    <option value="">Please Select</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                Section Number
+                                <select class="form-control" asp-for="SectionId" asp-items="@(new SelectList(ViewBag.Section,"SectionNumberId","Name"))">
+                                    <option value="">Please Select</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row" style="padding-top:25px">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary">Save Student</button>
+            </div>
+        </div>
+    </form>
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
+</html>

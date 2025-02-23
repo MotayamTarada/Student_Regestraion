@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HopeOctoberModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Doctors">
+    <Key>
+      <PropertyRef Name="DoctorId" />
+    </Key>
+    <Property Name="DoctorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoctorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="MoneyTable">
+    <Key>
+      <PropertyRef Name="MoneyId" />
+    </Key>
+    <Property Name="MoneyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BidPrice" Type="float" Nullable="false" />
+    <Property Name="SellingPrice" Type="decimal" Precision="25" Scale="3" Nullable="false" />
+    <Property Name="CreatedBy" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="DoctorId" Type="int" />
+  </EntityType>
+  <EntityType Name="Teachers">
+    <Key>
+      <PropertyRef Name="TeacherId" />
+    </Key>
+    <Property Name="TeacherId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeacherName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TeacherSubject" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeacherStudents">
+    <Key>
+      <PropertyRef Name="StudentTeacherId" />
+    </Key>
+    <Property Name="StudentTeacherId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="TeacherId" Type="int" Nullable="false" />
+    <Property Name="Marks" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Students_Doctors">
+    <End Role="Doctors" Type="Self.Doctors" Multiplicity="0..1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctors">
+        <PropertyRef Name="DoctorId" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeacherStudents_Students">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="TeacherStudents" Type="Self.TeacherStudents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="TeacherStudents">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeacherStudents_Teachers">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="1" />
+    <End Role="TeacherStudents" Type="Self.TeacherStudents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="TeacherId" />
+      </Principal>
+      <Dependent Role="TeacherStudents">
+        <PropertyRef Name="TeacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HopeOctoberModelStoreContainer">
+    <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MoneyTable" EntityType="Self.MoneyTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeacherStudents" EntityType="Self.TeacherStudents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Students_Doctors" Association="Self.FK_Students_Doctors">
+      <End Role="Doctors" EntitySet="Doctors" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeacherStudents_Students" Association="Self.FK_TeacherStudents_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="TeacherStudents" EntitySet="TeacherStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeacherStudents_Teachers" Association="Self.FK_TeacherStudents_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="TeacherStudents" EntitySet="TeacherStudents" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

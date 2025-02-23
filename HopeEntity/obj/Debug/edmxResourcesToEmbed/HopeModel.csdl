@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HopeOctoberModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="DoctorId" />
+    </Key>
+    <Property Name="DoctorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DoctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Students" Relationship="Self.FK_Students_Doctors" FromRole="Doctors" ToRole="Students" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="Boolean" Nullable="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DoctorId" Type="Int32" />
+    <NavigationProperty Name="Doctor" Relationship="Self.FK_Students_Doctors" FromRole="Students" ToRole="Doctors" />
+    <NavigationProperty Name="TeacherStudents" Relationship="Self.FK_TeacherStudents_Students" FromRole="Students" ToRole="TeacherStudents" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="TeacherId" />
+    </Key>
+    <Property Name="TeacherId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TeacherSubject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TeacherStudents" Relationship="Self.FK_TeacherStudents_Teachers" FromRole="Teachers" ToRole="TeacherStudents" />
+  </EntityType>
+  <EntityType Name="TeacherStudent">
+    <Key>
+      <PropertyRef Name="StudentTeacherId" />
+    </Key>
+    <Property Name="StudentTeacherId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="TeacherId" Type="Int32" Nullable="false" />
+    <Property Name="Marks" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_TeacherStudents_Students" FromRole="TeacherStudents" ToRole="Students" />
+    <NavigationProperty Name="Teacher" Relationship="Self.FK_TeacherStudents_Teachers" FromRole="TeacherStudents" ToRole="Teachers" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="Boolean" Nullable="false" />
+    <Property Name="Mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Students_Doctors">
+    <End Role="Doctors" Type="Self.Doctor" Multiplicity="0..1" />
+    <End Role="Students" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctors">
+        <PropertyRef Name="DoctorId" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeacherStudents_Students">
+    <End Role="Students" Type="Self.Student" Multiplicity="1" />
+    <End Role="TeacherStudents" Type="Self.TeacherStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="TeacherStudents">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeacherStudents_Teachers">
+    <End Role="Teachers" Type="Self.Teacher" Multiplicity="1" />
+    <End Role="TeacherStudents" Type="Self.TeacherStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="TeacherId" />
+      </Principal>
+      <Dependent Role="TeacherStudents">
+        <PropertyRef Name="TeacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HopeOctoberEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="Teachers" EntityType="Self.Teacher" />
+    <EntitySet Name="TeacherStudents" EntityType="Self.TeacherStudent" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Students_Doctors" Association="Self.FK_Students_Doctors">
+      <End Role="Doctors" EntitySet="Doctors" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeacherStudents_Students" Association="Self.FK_TeacherStudents_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="TeacherStudents" EntitySet="TeacherStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeacherStudents_Teachers" Association="Self.FK_TeacherStudents_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="TeacherStudents" EntitySet="TeacherStudents" />
+    </AssociationSet>
+    <EntitySet Name="MoneyTables" EntityType="HopeOctoberModel.MoneyTable" />
+  </EntityContainer>
+  <EntityType Name="MoneyTable">
+    <Key>
+      <PropertyRef Name="MoneyId" />
+    </Key>
+    <Property Name="MoneyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BidPrice" Type="Double" Nullable="false" />
+    <Property Name="SellingPrice" Type="Decimal" Nullable="false" Precision="25" Scale="3" />
+    <Property Name="CreatedBy" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>

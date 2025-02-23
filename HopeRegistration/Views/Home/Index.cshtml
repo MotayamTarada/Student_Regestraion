@@ -1,0 +1,117 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<html>
+<head>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+    <style>
+        .column {
+            float: left;
+            width: 25%;
+            padding: 0 5px;
+        }
+
+        .row {
+            margin: 0 -5px;
+        }
+
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+        .card {
+            padding: 16px;
+            text-align: center;
+            background-color:#808080;
+            color: white;
+            box-shadow: 0 4px 8px 0;
+        }
+
+        .fa{
+            font-size:50px;
+        }
+
+        .fas {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12" style="text-align:center">
+            <i class="fas fa-tachometer-alt"></i> <h3>Dashboard</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <p><i class="fas fa-chalkboard-teacher"></i></p>
+                <h2 class="count">@ViewBag.Teachers</h2>
+                <p>Teachers</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <p><i class="fas fa-user-graduate"></i></p>
+                <h2 class="count">@ViewBag.Students</h2>
+                <p>Students</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <p><i class="fa fa-user"></i></p>
+                <h2 class="count">@ViewBag.Grades</h2>
+                <p>Grades</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    @*<div class="row">
+        <div class="col-md-6">
+            <span style="font-size:35px">Teachers</span>
+            <span style="font-size:35px;background-color: #e4e4e4c2;padding: 10px;border-radius: 10px;font-weight: bold;" class="count">@ViewBag.Teachers</span>
+        </div>
+    </div>
+    <div class="row" style="padding-top:20px">
+        <div class="col-md-6">
+            <span style="font-size:35px">Students</span>
+            <span style="font-size:35px;background-color: #e4e4e4c2;padding: 10px;border-radius: 10px;font-weight: bold;" class="count" id="Student">500</span>
+        </div>
+    </div>
+    <div class="row" style="padding-top:20px">
+        <div class="col-md-6">
+            <span style="font-size:35px">Grades</span>
+            <span style="font-size:35px;background-color: #e4e4e4c2;padding: 10px;border-radius: 10px;font-weight: bold;" class="count" id="Grade">@ViewBag.Grades</span>
+        </div>
+    </div>*@
+
+    <script>
+        $('.count').each(function () {
+            $(this).prop('Counter', 1).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 1500,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+
+
+    </script>
+</body>
+</html>
+
+
+
+

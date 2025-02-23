@@ -1,0 +1,15 @@
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\bin\Debug\EntityTest.exe.config
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\bin\Debug\EntityTest.exe
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\bin\Debug\EntityTest.pdb
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\bin\Debug\HopeEntity.dll
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\bin\Debug\EntityFramework.dll
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\bin\Debug\HopeEntity.pdb
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\bin\Debug\HopeEntity.dll.config
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\bin\Debug\EntityFramework.xml
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\obj\Debug\EntityTest.csprojAssemblyReference.cache
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\obj\Debug\EntityTest.csproj.CoreCompileInputs.cache
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\obj\Debug\EntityTest.csproj.CopyComplete
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\obj\Debug\EntityTest.exe
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\obj\Debug\EntityTest.pdb
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\bin\Debug\EntityFramework.SqlServer.dll
+D:\TheHope\Project_SourceCode\HopeSeptember\EntityTest\bin\Debug\EntityFramework.SqlServer.xml

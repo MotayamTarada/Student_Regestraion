@@ -1,0 +1,16 @@
+﻿body
+{
+}
+
+.row {
+    padding-top: 25px;
+}
+
+.rowFontSize {
+    font-size: 16px;
+    font-family: fantasy;
+}
+
+.btn-primary {
+    color: red !important;
+}

@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<div class="row">
+    <div class="col-md-3">
+        First Value
+        <input type="text" id="First" class="form-control" value="15" maxlength="20" />
+
+    </div>
+    <div class="col-md-3">
+        Second Value
+        <input type="text" id="Second"  class="form-control" value="25" />
+    </div>
+    <div class="col-md-3">
+        Third Value
+        <input type="text" id="Third" class="form-control" value="58" />
+    </div>
+    <div class="col-md-3">
+        Fourth Value
+        <input type="text" id="Fourth" class="form-control" value="60" />
+
+    </div>
+</div>
+
+
+<div class="row" style="padding-top:25px">
+    <div class="col-md-4">
+<textarea maxlength="500" class="form-control" id="AreaTest" rows="5" onkeypress="ShowMessage()"></textarea>
+        
+    </div>
+</div>
+
+<div class="row" style="padding-top:25px">
+    <div class="col-md-3">
+        <button onclick="CheckValue()" class="btn btn-info">Check</button>
+    </div>
+</div>
+
+<div class="alert alert-primary" id="role" role="alert" style="display:none">
+    <label id="lbl"></label>
+</div>
+
+<script type="text/javascript">
+
+    function CheckValue() {
+        var _first = document.getElementById('First').value;
+
+        document.getElementById('lbl').innerHTML = _first;
+        document.getElementById('role').style.display = 'block';
+        //alert(_first);
+    }
+
+    function ShowMessage() {
+        document.getElementById('role').style.display = 'block';
+        var count = document.getElementById('AreaTest').value;
+      
+        document.getElementById('lbl').innerHTML = "Pening Test " + (500 - count.length) ;
+    }
+
+</script>

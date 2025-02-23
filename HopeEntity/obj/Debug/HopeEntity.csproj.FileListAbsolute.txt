@@ -1,0 +1,12 @@
+D:\TheHope\Project_SourceCode\HopeSeptember\HopeEntity\bin\Debug\HopeEntity.dll.config
+D:\TheHope\Project_SourceCode\HopeSeptember\HopeEntity\bin\Debug\HopeEntity.dll
+D:\TheHope\Project_SourceCode\HopeSeptember\HopeEntity\bin\Debug\HopeEntity.pdb
+D:\TheHope\Project_SourceCode\HopeSeptember\HopeEntity\bin\Debug\EntityFramework.dll
+D:\TheHope\Project_SourceCode\HopeSeptember\HopeEntity\bin\Debug\EntityFramework.SqlServer.dll
+D:\TheHope\Project_SourceCode\HopeSeptember\HopeEntity\bin\Debug\EntityFramework.xml
+D:\TheHope\Project_SourceCode\HopeSeptember\HopeEntity\bin\Debug\EntityFramework.SqlServer.xml
+D:\TheHope\Project_SourceCode\HopeSeptember\HopeEntity\obj\Debug\HopeEntity.csprojAssemblyReference.cache
+D:\TheHope\Project_SourceCode\HopeSeptember\HopeEntity\obj\Debug\HopeEntity.csproj.CoreCompileInputs.cache
+D:\TheHope\Project_SourceCode\HopeSeptember\HopeEntity\obj\Debug\HopeEntity.csproj.CopyComplete
+D:\TheHope\Project_SourceCode\HopeSeptember\HopeEntity\obj\Debug\HopeEntity.dll
+D:\TheHope\Project_SourceCode\HopeSeptember\HopeEntity\obj\Debug\HopeEntity.pdb

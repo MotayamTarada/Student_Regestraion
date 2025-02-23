@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Get All Users";
+}
+@model List<CoreTestApplication.Models.UserModel>;
+<html>
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
+</head>
+<body>
+
+    <table id="example" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Gender</th>
+                <th>Comments</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (CoreTestApplication.Models.UserModel item in Model)
+            {
+            <tr>
+                <td>@item.FirstName  @item.LastName</td>
+                <td>@item.Email</td>
+                <td>@item.Mobile</td>
+                @if (@item.Gender == false)
+                {
+                    <td>Male</td>
+                }
+                else
+                {
+                    <td>Female</td>
+                }
+
+                @*@if (@item.Comments.Length > 10)
+        {
+            <td style="color:red">@item.Comments</td>
+        }
+        else
+        {
+            <td style="color:green">@item.Comments</td>
+        }*@
+
+                <td style="color:@item.CommentsColor">@item.Comments</td>
+                <td>
+                    <a asp-controller="User" asp-action="UpdateUser" asp-route-Id="@item.ID" class="far fa-edit"></a>
+                    <a asp-controller="User" asp-action="DeleteUser" asp-route-Id="@item.ID" class="fas fa-trash-alt"></a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

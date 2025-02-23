@@ -1,0 +1,7 @@
+D:\TheHope\Project_SourceCode\HopeSeptember\Introduction\bin\Debug\Introduction.exe.config
+D:\TheHope\Project_SourceCode\HopeSeptember\Introduction\bin\Debug\Introduction.exe
+D:\TheHope\Project_SourceCode\HopeSeptember\Introduction\bin\Debug\Introduction.pdb
+D:\TheHope\Project_SourceCode\HopeSeptember\Introduction\obj\Debug\Introduction.csproj.CoreCompileInputs.cache
+D:\TheHope\Project_SourceCode\HopeSeptember\Introduction\obj\Debug\Introduction.exe
+D:\TheHope\Project_SourceCode\HopeSeptember\Introduction\obj\Debug\Introduction.pdb
+D:\TheHope\Project_SourceCode\HopeSeptember\Introduction\obj\Debug\Introduction.csprojAssemblyReference.cache

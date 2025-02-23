@@ -1,0 +1,82 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+    ViewData["Title"] = "Get All Teachers";
+}
+
+@model List<HopeRegistration.Models.TeacherModel>
+
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12" style="text-align:center">
+            <h3>Get All Teachers</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" style="text-align:right">
+            <a href="AddNewTeacher" style="font-weight:bold; color:red">
+                Add New Teacher
+            </a>
+        </div>
+    </div>
+
+
+    <table class="table table-striped" style="width:100%">
+        <thead>
+            <tr style="background-color:#8080807d">
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+                <th>Hire Date</th>
+                <th>Mobile</th>
+                <th>Education</th>
+                <th>Salary</th>
+                <th>Subject</th>
+                <th>Grade Name</th>
+                <th>Section Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (HopeRegistration.Models.TeacherModel item in Model)
+            {
+            <tr>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.GenderDisplayName</td>
+                @if (@item.HireDate.HasValue)
+                {
+                    <td>@item.HireDate.Value.ToString("dd/mm/yyyy")</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+
+                <td>@item.Mobile</td>
+                <td>@item.Education</td>
+                <td>@item.Salary</td>
+                <td>@item.Subject</td>
+                <td>@item.GradeNumberName</td>
+                <td>@item.SectionName</td>
+                <td>
+                    <a asp-controller="Teacher" style="color:green; font-size:20px" asp-action="UpdateTeacher" asp-route-Id="@item.TeacherId" class="far fa-edit"></a>
+                    <a asp-controller="Teacher" style="color:red; font-size:20px" asp-action="DeleteTeacher" asp-route-Id="@item.TeacherId" class="fas fa-trash-alt"></a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>

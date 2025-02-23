@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<HopeRegistration.Models.StudentDetailsModel>
+
+<html>
+<head>
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12" style="text-align:center">
+            <h3>Get All Student Details</h3>
+        </div>
+    </div>
+   
+
+
+    <table class="table table-striped" style="width:100%">
+        <thead>
+            <tr style="background-color:#8080807d">
+                <th>Student Name</th>
+                <th>Teacher Name</th>
+                <th>Class Name</th>
+                <th>Section Name</th>
+      
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (HopeRegistration.Models.StudentDetailsModel item in Model)
+            {
+                <tr>
+                    <td>@item.StudentName</td>
+                    <td>@item.TeacherName</td>
+                    <td>@item.ClassName</td>
+                  
+                    <td>@item.SectionName</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="adfa1b6c10964c5280ff48a4293d1ac8" Name="Diagram1">
+        <EntityTypeShape EntityType="HopeOctoberModel.Doctor" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HopeOctoberModel.Student" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HopeOctoberModel.Teacher" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HopeOctoberModel.TeacherStudent" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HopeOctoberModel.User" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="HopeOctoberModel.FK_Students_Doctors" ManuallyRouted="false" />
+        <AssociationConnector Association="HopeOctoberModel.FK_TeacherStudents_Students" ManuallyRouted="false" />
+        <AssociationConnector Association="HopeOctoberModel.FK_TeacherStudents_Teachers" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HopeOctoberModel.MoneyTable" Width="1.5" PointX="5.625" PointY="4.625" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
