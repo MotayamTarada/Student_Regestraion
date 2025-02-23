@@ -1,1 +1,1 @@
-Full stack ( Asp.net MVC ,jquery , CSS , Boostrap ,HTML , MySql Server)
+Full stack ( Asp.net MVC ,Jquery , CSS , BOOTSTRAP ,HTML , MySql Server)
